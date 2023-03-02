@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class Functional_interfaces_example {
     public static void main(String[] args) {
@@ -9,7 +10,6 @@ public class Functional_interfaces_example {
         // где каждая строка заменена тремя копиями самой себя
         // (напр. ["a", "bb", "ccc"] → ["aaa", "bbbbbb", "ccccccccc"]).
         // Использовать Consumer
-
         List<String> stringList = Arrays.asList("a", "bb", "ccc");
         Consumer<List<String>> stringConsumer = s -> {
             for (int i = 0; i < s.size(); i++) {
@@ -33,6 +33,12 @@ public class Functional_interfaces_example {
         //Создать лямбда выражение, которое проверяет,
         // что строка начинается с буквы “A” или “С” и заканчивается буквой “Р”.
         // Использовать Predicate.
+        checkByPredicate('A','C', 'E', "Attractive");
     }
-
+    public static void checkByPredicate (char firstA, char firstB, char lastC, String word){
+        Predicate<String> checkFirstLetterA = s -> s.toUpperCase().startsWith(String.valueOf(firstA));
+        Predicate<String> checkFirstLetterC = s -> s.toUpperCase().startsWith(String.valueOf(firstB));
+        Predicate<String> checkLastLetter = s -> s.toUpperCase().endsWith(String.valueOf(lastC));
+        System.out.println(checkFirstLetterA.or(checkFirstLetterC).and(checkLastLetter).test(word));
+    }
 }
