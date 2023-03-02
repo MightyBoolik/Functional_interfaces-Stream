@@ -19,6 +19,16 @@ public class Stream_example {
                 .distinct()
                 .map(String::trim)
                 .forEach(System.out::println);
+        //Дано предложение, нужно:
+        //1. Посчитать, сколько в нем слов
+        //2. Вывести только слова на букву д
+        List<String> words = new ArrayList<>();
+        String phrase = "This is phrase for test";
+        for(String word: phrase.split(" ")){
+            words.add(word);
+        }
+        System.out.println(phrase + "- words quantity: " + words.stream().count());
+        words.stream().map(String::toUpperCase).filter(s -> s.startsWith("T")).forEach(System.out::println);
     }
 
 
