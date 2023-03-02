@@ -19,6 +19,7 @@ public class Stream_example {
                 .distinct()
                 .map(String::trim)
                 .forEach(System.out::println);
+
         //Дано предложение, нужно:
         //1. Посчитать, сколько в нем слов
         //2. Вывести только слова на букву д
