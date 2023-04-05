@@ -1,7 +1,7 @@
+package interfaces_stream;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -13,7 +13,7 @@ public class Functional_interfaces_example {
         // Использовать Consumer
         List<String> stringList = Arrays.asList("a", "bb", "ccc");
 //        Consumer<List<String>> stringConsumer = s -> {
-            stringList.stream().map(i -> i.concat(i.concat(i))).forEach(System.out::println);
+        stringList.stream().map(i -> i.concat(i.concat(i))).forEach(System.out::println);
 
 //        };
 //        stringConsumer.accept(stringList);
@@ -34,9 +34,10 @@ public class Functional_interfaces_example {
         //Создать лямбда выражение, которое проверяет,
         // что строка начинается с буквы “A” или “С” и заканчивается буквой “Р”.
         // Использовать Predicate.
-        checkByPredicate('A','C', 'E', "AttractivE");
+        checkByPredicate('A', 'C', 'E', "AttractivE");
     }
-    public static void checkByPredicate (char firstA, char firstB, char lastC, String word){
+
+    public static void checkByPredicate(char firstA, char firstB, char lastC, String word) {
         Predicate<String> checkFirstLetterA = s ->
                 (s.startsWith(String.valueOf(firstA).toUpperCase()) || s.startsWith(String.valueOf(firstB).toUpperCase()))
                         && s.endsWith(String.valueOf(lastC).toUpperCase());
